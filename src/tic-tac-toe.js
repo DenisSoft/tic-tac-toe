@@ -29,15 +29,27 @@ class TicTacToe {
 
     chkWinner() {
         for (let i = 0; i < 3; i++) {
-            if (this.field[i][0] === this.field[i][1] && this.field[i][1] === this.field[i][2] && this.field[i][1] !== undefined)
-                this.winner = this.field[i][0];
-            if (this.field[0][i] === this.field[1][i] && this.field[1][i] === this.field[2][i] && this.field[1][i] !== undefined)
-                this.winner = this.field[0][i];
+            if (this.field[i][i] !== undefined){
+                if (this.field[i][0] === this.field[i][1] && this.field[i][1] === this.field[i][2]){
+                    this.winner = this.field[i][0];
+                    return;
+                } else {
+                    if (this.field[0][i] === this.field[1][i] && this.field[1][i] === this.field[2][i]){
+                        this.winner = this.field[0][i];
+                        return;
+                    }
+                }
+            }
         }
-        if (this.field[0][0] === this.field[1][1] && this.field[1][1] === this.field[2][2] && this.field[1][1] !== undefined)
-            this.winner = this.field[1][1];
-        if (this.field[0][2] === this.field[1][1] && this.field[1][1] === this.field[2][0] && this.field[1][1] !== undefined)
-            this.winner = this.field[1][1];
+        if (this.field[1][1] !== undefined){
+            if (this.field[0][0] === this.field[1][1] && this.field[1][1] === this.field[2][2]){
+                this.winner = this.field[1][1];
+            } else {
+                if (this.field[0][2] === this.field[1][1] && this.field[1][1] === this.field[2][0]) {
+                    this.winner = this.field[1][1];
+                }
+            }
+        }
     }
 
     getWinner() {
